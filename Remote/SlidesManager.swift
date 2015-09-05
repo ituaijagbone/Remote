@@ -19,7 +19,7 @@ class SlidesManager {
 //        posterImageView.image = UIImage(data: tmpdata)
 //    }
     
-    func getSlidesList(onComplete: (results: [Slides]) -> Void) {
+    func getSlidesList(slideId: Int, onComplete: (results: [Slides]) -> Void) {
         Alamofire.request(.GET, "").responseJSON{
             (request, response, data, error) -> Void in
             println(error)
@@ -42,7 +42,7 @@ class SlidesManager {
         }
     }
     
-    func getDummySlidesList(onComplete: (results: [Slides]) -> Void) {
+    func getDummySlidesList(slideId: Int, onComplete: (results: [Slides]) -> Void) {
         for index in 1...5 {
             var data = [
                 "title": "presentation\(index)",

@@ -10,10 +10,15 @@ import UIKit
 
 let reuseIdentifier = "collection"
 
+protocol SlidesCollectionViewControllerDelegate {
+    func indexChanged(index: Int)
+}
+
 class SlidesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
+    var delegate: SlidesCollectionViewControllerDelegate?
     let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     var slidesList: [Slides]!
+    var currentIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +50,11 @@ class SlidesCollectionViewController: UICollectionViewController, UICollectionVi
         cell.pinImage.image = UIImage(named: imgName)
         
         return cell
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        delegate?.indexChanged(indexPath.row)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 //    func collectionView(collectionView: UICollectionView,

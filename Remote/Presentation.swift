@@ -11,11 +11,11 @@ import Foundation
 class Presentation {
     var title: String
     var thumbnail: String
-    var id: Int
+    var slideId: Int
     
     init(data: NSDictionary) {
         title = data["title"] as! String
         thumbnail = data["thumbnail"] as! String
-        id = data["id"] as! Int
+        slideId = data["id"] as! Int
     }
 }

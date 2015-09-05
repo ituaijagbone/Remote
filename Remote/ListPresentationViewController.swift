@@ -23,8 +23,10 @@ class ListPresentationViewController: UIViewController, UITableViewDataSource, U
         
         presentationManager.getDummyPresentationList{
             (results) -> Void in
-            self.presentationList = results
-            self.tableView.reloadData()
+            dispatch_async(dispatch_get_main_queue()) {
+                self.presentationList = results
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -62,6 +64,11 @@ class ListPresentationViewController: UIViewController, UITableViewDataSource, U
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "presentationPlayer" {
             // TODO: Add the routine destintion controller here
+            let indexPath = self.tableView.indexPathForCell(sender as! PresentationCell)
+            let presentation = self.presentationList[indexPath!.row]
+            let presentationVC = segue.destinationViewController as! PresentationPlayerViewController
+            presentationVC.slideId = presentation.slideId
+            
         }
     }
 }

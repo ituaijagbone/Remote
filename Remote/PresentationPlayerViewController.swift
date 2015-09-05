@@ -8,11 +8,13 @@
 
 import UIKit
 
-class PresentationPlayerViewController: UIViewController {
+class PresentationPlayerViewController: UIViewController, SlidesCollectionViewControllerDelegate {
     
     var slidesList: [Slides]!
     var slideIndex = 0
     var currentSlide: Slides!
+    let slidesManager = SlidesManager()
+    var slideId: Int!
     
     @IBOutlet weak var bkImageView: UIImageView!
     @IBOutlet weak var prevButton: UIButton!
@@ -22,7 +24,14 @@ class PresentationPlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        load()
+        slidesManager.getDummySlidesList(self.slideId){
+            results in
+            self.slidesList = results
+            dispatch_async(dispatch_get_main_queue()) {
+                self.currentSlide = self.slidesList[self.slideIndex]
+                self.load()
+            }
+        }
     }
     
     func load(){
@@ -67,6 +76,20 @@ class PresentationPlayerViewController: UIViewController {
         return self.slidesList[slideIndex]
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "slideCollection" {
+            let dvc = segue.destinationViewController as! UINavigationController
+            let slideCollection = dvc.topViewController as! SlidesCollectionViewController
+            slideCollection.delegate = self
+            slideCollection.slidesList = self.slidesList
+            slideCollection.currentIndex = self.slideIndex
+        }
+    }
+    
+    func indexChanged(index: Int) {
+        self.currentSlide = self.slidesList[self.slideIndex]
+        self.load()
+    }
 }
 
 
