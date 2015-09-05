@@ -18,8 +18,8 @@ class ListPresentationViewController: UIViewController, UITableViewDataSource, U
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-//        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 215
+        self.tableView.rowHeight = 230
+//        self.tableView.estimatedRowHeight = 215
         
         presentationManager.getDummyPresentationList{
             (results) -> Void in

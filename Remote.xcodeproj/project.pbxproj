@@ -587,6 +587,7 @@
 				6ED43A711B9AF4DB00270A4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6ED43A721B9AF4DC00270A4B /* Build configuration list for PBXNativeTarget "RemoteTests" */ = {
 			isa = XCConfigurationList;
@@ -595,6 +596,7 @@
 				6ED43A741B9AF4DC00270A4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

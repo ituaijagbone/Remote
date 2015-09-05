@@ -21,31 +21,30 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="presentationCell" rowHeight="215" id="aMH-re-YVy" customClass="PresentationCell" customModule="Remote" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="presentationCell" rowHeight="230" id="aMH-re-YVy" customClass="PresentationCell" customModule="Remote" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aMH-re-YVy" id="uVa-ED-aDQ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eOp-aK-WfV">
-                                                    <rect key="frame" x="28" y="28" width="264" height="158"/>
+                                                    <rect key="frame" x="28" y="28" width="231" height="158"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5c-BT-DY9">
-                                                    <rect key="frame" x="28" y="186" width="264" height="40"/>
+                                                    <rect key="frame" x="28" y="201" width="264" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="eOp-aK-WfV" secondAttribute="trailing" constant="-13" id="7Tx-K2-wbV"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="eOp-aK-WfV" secondAttribute="trailing" constant="20" id="7Tx-K2-wbV"/>
                                                 <constraint firstItem="N5c-BT-DY9" firstAttribute="leading" secondItem="uVa-ED-aDQ" secondAttribute="leadingMargin" constant="20" id="AVM-os-AQ6"/>
                                                 <constraint firstItem="eOp-aK-WfV" firstAttribute="leading" secondItem="uVa-ED-aDQ" secondAttribute="leadingMargin" constant="20" id="E2b-MY-0hR"/>
                                                 <constraint firstItem="eOp-aK-WfV" firstAttribute="top" secondItem="uVa-ED-aDQ" secondAttribute="topMargin" constant="20" id="FDU-Sq-xVI"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="N5c-BT-DY9" secondAttribute="trailing" constant="-13" id="Rnq-Uj-gD6"/>
-                                                <constraint firstItem="N5c-BT-DY9" firstAttribute="bottom" secondItem="uVa-ED-aDQ" secondAttribute="bottomMargin" constant="20" id="sbn-fX-A3g"/>
-                                                <constraint firstItem="N5c-BT-DY9" firstAttribute="top" secondItem="eOp-aK-WfV" secondAttribute="bottom" id="uNr-RR-eHo"/>
-                                                <constraint firstItem="eOp-aK-WfV" firstAttribute="centerY" secondItem="uVa-ED-aDQ" secondAttribute="centerY" id="v1n-Sn-O6x"/>
+                                                <constraint firstItem="N5c-BT-DY9" firstAttribute="top" secondItem="eOp-aK-WfV" secondAttribute="bottom" constant="15" id="uNr-RR-eHo"/>
+                                                <constraint firstItem="eOp-aK-WfV" firstAttribute="centerY" secondItem="uVa-ED-aDQ" secondAttribute="centerY" constant="-7.5" id="v1n-Sn-O6x"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -100,6 +99,9 @@
                                             <state key="normal" title="Button">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="prev:" destination="Eg0-6m-uCj" eventType="touchUpInside" id="MCT-Nj-KN1"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6n-x1-Fx3">
                                             <rect key="frame" x="139" y="373" width="42" height="21"/>
@@ -118,6 +120,9 @@
                                             <state key="normal" title="Button">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="next:" destination="Eg0-6m-uCj" eventType="touchUpInside" id="DYa-T2-t78"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -229,6 +234,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="slidesCollectionView" destination="DYH-n7-DMg" id="cSh-GD-m0k"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UC3-t8-ERo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

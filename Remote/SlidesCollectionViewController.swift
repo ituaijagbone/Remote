@@ -20,8 +20,17 @@ class SlidesCollectionViewController: UICollectionViewController, UICollectionVi
     var slidesList: [Slides]!
     var currentIndex: Int!
     
+    @IBOutlet var slidesCollectionView: UICollectionView!
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.view.layoutIfNeeded()
+        let indexPath = NSIndexPath(forRow: currentIndex, inSection: 0)
+        self.slidesCollectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: UICollectionViewScrollPosition.CenteredVertically, animated: false)
     }
     
     override func didReceiveMemoryWarning() {
