@@ -51,7 +51,7 @@
                                         <connections>
                                             <outlet property="thumbnail" destination="eOp-aK-WfV" id="oi3-vC-lsO"/>
                                             <outlet property="title" destination="N5c-BT-DY9" id="NHE-7z-4Mw"/>
-                                            <segue destination="Eg0-6m-uCj" kind="push" id="lMN-RA-IoK"/>
+                                            <segue destination="Eg0-6m-uCj" kind="push" identifier="presentationController" id="lMN-RA-IoK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -134,7 +134,7 @@
                     <navigationItem key="navigationItem" id="mQ2-4n-Noe">
                         <barButtonItem key="rightBarButtonItem" systemItem="organize" id="Da6-kR-7S5">
                             <connections>
-                                <segue destination="rCY-F1-UGT" kind="modal" id="ryR-wU-H6N"/>
+                                <segue destination="rCY-F1-UGT" kind="modal" identifier="slideCollection" id="ryR-wU-H6N"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
