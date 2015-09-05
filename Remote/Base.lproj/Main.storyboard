@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="662" y="288"/>
         </scene>
-        <!--View Controller-->
+        <!--Presentation Player View Controller-->
         <scene sceneID="F2I-BJ-bK8">
             <objects>
-                <viewController id="Eg0-6m-uCj" sceneMemberID="viewController">
+                <viewController id="Eg0-6m-uCj" customClass="PresentationPlayerViewController" customModule="Remote" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I7r-9Q-GaZ"/>
                         <viewControllerLayoutGuide type="bottom" id="3Bo-QV-sJ8"/>
@@ -97,7 +97,39 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTw-ti-MvT">
                                             <rect key="frame" x="25" y="349" width="270" height="95"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7PZ-OH-IWq">
+                                                    <rect key="frame" x="20" y="20" width="46" height="55"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XfJ-Yu-exM">
+                                                    <rect key="frame" x="204" y="20" width="46" height="55"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6n-x1-Fx3">
+                                                    <rect key="frame" x="114" y="20" width="42" height="55"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="XfJ-Yu-exM" firstAttribute="leading" secondItem="Z6n-x1-Fx3" secondAttribute="trailing" constant="48" id="1Pj-qV-Zeq"/>
+                                                <constraint firstItem="7PZ-OH-IWq" firstAttribute="top" secondItem="fTw-ti-MvT" secondAttribute="top" constant="20" id="H90-vF-ctx"/>
+                                                <constraint firstAttribute="bottom" secondItem="XfJ-Yu-exM" secondAttribute="bottom" constant="20" id="Vap-V4-e4K"/>
+                                                <constraint firstAttribute="bottom" secondItem="Z6n-x1-Fx3" secondAttribute="bottom" constant="20" id="YOO-cU-Jqp"/>
+                                                <constraint firstItem="Z6n-x1-Fx3" firstAttribute="top" secondItem="fTw-ti-MvT" secondAttribute="top" constant="20" id="ZjM-hL-2M4"/>
+                                                <constraint firstItem="Z6n-x1-Fx3" firstAttribute="leading" secondItem="7PZ-OH-IWq" secondAttribute="trailing" constant="48" id="dfB-qr-How"/>
+                                                <constraint firstAttribute="trailing" secondItem="XfJ-Yu-exM" secondAttribute="trailing" constant="20" id="hcj-BB-rew"/>
+                                                <constraint firstAttribute="bottom" secondItem="7PZ-OH-IWq" secondAttribute="bottom" constant="20" id="izu-qF-DGr"/>
+                                                <constraint firstItem="7PZ-OH-IWq" firstAttribute="leading" secondItem="fTw-ti-MvT" secondAttribute="leading" constant="20" id="m8S-93-JJo"/>
+                                                <constraint firstItem="XfJ-Yu-exM" firstAttribute="top" secondItem="fTw-ti-MvT" secondAttribute="top" constant="20" id="sN7-bf-EaM"/>
+                                            </constraints>
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Unn-3q-xPJ">
                                             <rect key="frame" x="25" y="25" width="270" height="323"/>
@@ -138,6 +170,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bkImageView" destination="taF-Cw-sZM" id="pSq-dQ-aHN"/>
+                        <outlet property="nextButton" destination="XfJ-Yu-exM" id="NEW-ma-rDa"/>
+                        <outlet property="posterImageView" destination="Unn-3q-xPJ" id="KD3-bV-Hii"/>
+                        <outlet property="prevButton" destination="7PZ-OH-IWq" id="HRu-p6-Ufq"/>
+                        <outlet property="progressLabel" destination="Z6n-x1-Fx3" id="qFe-QC-qaS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HeA-7g-Bzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

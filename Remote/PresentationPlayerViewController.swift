@@ -18,6 +18,7 @@ class PresentationPlayerViewController: UIViewController {
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var progressLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class PresentationPlayerViewController: UIViewController {
         let imagedata = currentSlide.poster
         bkImageView.image = imagedata
         posterImageView.image = imagedata
-        // TODO: update progress
+        progressLabel.text = "\(currentSlide)/\(slidesList.count)"
     }
     
     override func didReceiveMemoryWarning() {
