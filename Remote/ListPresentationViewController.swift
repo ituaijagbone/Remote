@@ -18,7 +18,7 @@ class ListPresentationViewController: UIViewController, UITableViewDataSource, U
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+//        self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 215
         
         presentationManager.getDummyPresentationList{
@@ -52,13 +52,19 @@ class ListPresentationViewController: UIViewController, UITableViewDataSource, U
 
         // TODO: Add cell model here
         let mPresentation = self.presentationList[indexPath.row]
-        let imageData = NSData(contentsOfURL: NSURL(fileURLWithPath: mPresentation.thumbnail)!)
-        if let tmpData = imageData {
-            cell.thumbnail.image = UIImage(data: tmpData)
-        }
+        cell.thumbnail.image = UIImage(named: mPresentation.thumbnail)
+//        let imageData = NSData(contentsOfURL: NSURL(fileURLWithPath: mPresentation.thumbnail)!)
+//        if let tmpData = imageData {
+//            cell.thumbnail.image = UIImage(data: tmpData)
+//        }
+
         cell.title.text = mPresentation.title
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("presentationPlayer", sender: self.tableView.cellForRowAtIndexPath(indexPath))
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

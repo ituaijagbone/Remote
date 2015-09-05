@@ -57,6 +57,9 @@ class SlidesCollectionViewController: UICollectionViewController, UICollectionVi
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func dismissModel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 //    func collectionView(collectionView: UICollectionView,
 //        layout collectionViewLayout: UICollectionViewLayout,
 //        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

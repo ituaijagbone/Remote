@@ -43,12 +43,13 @@ class SlidesManager {
     }
     
     func getDummySlidesList(slideId: Int, onComplete: (results: [Slides]) -> Void) {
-        for index in 1...5 {
+        for index in 0..<5 {
             var data = [
                 "title": "presentation\(index)",
-                "thumbnail": ""
+                "posterUrl":  "pin\(index).jpg"
             ]
             let slides = Slides(data: data)
+            slides.poster = UIImage(named: "pin\(index).jpg")!
             self.slidesList.append(slides)
         }
         onComplete(results: self.slidesList)

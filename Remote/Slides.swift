@@ -10,13 +10,14 @@ import UIKit
 
 class Slides {
     var title: String
-    var poster: UIImage = nil
+    var poster: UIImage
     var posterUrl: String
-    var id: Int
+    //var id: Int
     
     init(data: NSDictionary) {
         title = data["title"] as! String
         posterUrl = data["posterUrl"] as! String
-        id = data["id"] as! Int
+        //id = data["id"] as! Int
+        poster = UIImage()
     }
 }

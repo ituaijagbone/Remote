@@ -38,7 +38,7 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
         let imagedata = currentSlide.poster
         bkImageView.image = imagedata
         posterImageView.image = imagedata
-        progressLabel.text = "\(currentSlide)/\(slidesList.count)"
+        //progressLabel.text = "\(currentSlide)/\(slidesList.count)"
     }
     
     override func didReceiveMemoryWarning() {
@@ -87,6 +87,8 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
     }
     
     func indexChanged(index: Int) {
+        println(index)
+        self.slideIndex = index
         self.currentSlide = self.slidesList[self.slideIndex]
         self.load()
     }

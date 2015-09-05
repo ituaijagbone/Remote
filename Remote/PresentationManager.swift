@@ -29,10 +29,11 @@ class PresentationManager {
     }
     
     func getDummyPresentationList(onComplete: (results: [Presentation]) -> Void) {
-        for index in 1...5 {
+        for index in 0..<5 {
             var data = [
                 "title": "presentation\(index)",
-                "thumbnail": ""
+                "thumbnail": "pin\(index).jpg",
+                "id": index
             ]
             let presentation = Presentation(data: data)
             self.presentationList.append(presentation)
