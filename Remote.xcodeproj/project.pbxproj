@@ -21,6 +21,8 @@
 		6ED43A9F1B9B4D2E00270A4B /* Slides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED43A9E1B9B4D2E00270A4B /* Slides.swift */; };
 		6ED43AA11B9B534200270A4B /* SlidesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED43AA01B9B534200270A4B /* SlidesManager.swift */; };
 		6ED43AA31B9B54FC00270A4B /* PresentationPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED43AA21B9B54FC00270A4B /* PresentationPlayerViewController.swift */; };
+		6ED43AA51B9B5BF500270A4B /* SlidesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED43AA41B9B5BF500270A4B /* SlidesCollectionViewController.swift */; };
+		6ED43AA71B9B5EC900270A4B /* SlidesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED43AA61B9B5EC900270A4B /* SlidesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		6ED43A9E1B9B4D2E00270A4B /* Slides.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slides.swift; sourceTree = "<group>"; };
 		6ED43AA01B9B534200270A4B /* SlidesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidesManager.swift; sourceTree = "<group>"; };
 		6ED43AA21B9B54FC00270A4B /* PresentationPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationPlayerViewController.swift; sourceTree = "<group>"; };
+		6ED43AA41B9B5BF500270A4B /* SlidesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidesCollectionViewController.swift; sourceTree = "<group>"; };
+		6ED43AA61B9B5EC900270A4B /* SlidesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidesCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,7 @@
 		6ED43A521B9AF4DB00270A4B /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				6ED43AA61B9B5EC900270A4B /* SlidesCollectionViewCell.swift */,
 				6ED43A551B9AF4DB00270A4B /* AppDelegate.swift */,
 				6ED43A571B9AF4DB00270A4B /* ListPresentationViewController.swift */,
 				6ED43A591B9AF4DB00270A4B /* Main.storyboard */,
@@ -155,6 +160,7 @@
 				6ED43A9E1B9B4D2E00270A4B /* Slides.swift */,
 				6ED43AA01B9B534200270A4B /* SlidesManager.swift */,
 				6ED43AA21B9B54FC00270A4B /* PresentationPlayerViewController.swift */,
+				6ED43AA41B9B5BF500270A4B /* SlidesCollectionViewController.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -340,7 +346,9 @@
 				6ED43AA31B9B54FC00270A4B /* PresentationPlayerViewController.swift in Sources */,
 				6ED43AA11B9B534200270A4B /* SlidesManager.swift in Sources */,
 				6ED43A781B9B421B00270A4B /* Presentation.swift in Sources */,
+				6ED43AA71B9B5EC900270A4B /* SlidesCollectionViewCell.swift in Sources */,
 				6ED43A581B9AF4DB00270A4B /* ListPresentationViewController.swift in Sources */,
+				6ED43AA51B9B5BF500270A4B /* SlidesCollectionViewController.swift in Sources */,
 				6ED43A7A1B9B42AA00270A4B /* PresentationManager.swift in Sources */,
 				6ED43A561B9AF4DB00270A4B /* AppDelegate.swift in Sources */,
 			);

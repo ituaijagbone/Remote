@@ -46,7 +46,7 @@ class ListPresentationViewController: UIViewController, UITableViewDataSource, U
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! PresentationCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("presentationCell") as! PresentationCell
 
         // TODO: Add cell model here
         let mPresentation = self.presentationList[indexPath.row]
