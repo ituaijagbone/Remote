@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		6ED43A561B9AF4DB00270A4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED43A551B9AF4DB00270A4B /* AppDelegate.swift */; };
-		6ED43A581B9AF4DB00270A4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED43A571B9AF4DB00270A4B /* ViewController.swift */; };
+		6ED43A581B9AF4DB00270A4B /* ListPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED43A571B9AF4DB00270A4B /* ListPresentationViewController.swift */; };
 		6ED43A5B1B9AF4DB00270A4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED43A591B9AF4DB00270A4B /* Main.storyboard */; };
 		6ED43A5D1B9AF4DB00270A4B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ED43A5C1B9AF4DB00270A4B /* Images.xcassets */; };
 		6ED43A601B9AF4DB00270A4B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ED43A5E1B9AF4DB00270A4B /* LaunchScreen.xib */; };
 		6ED43A6C1B9AF4DB00270A4B /* RemoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED43A6B1B9AF4DB00270A4B /* RemoteTests.swift */; };
+		6ED43A761B9B3D9D00270A4B /* PresentationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED43A751B9B3D9D00270A4B /* PresentationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +30,14 @@
 		6ED43A501B9AF4DB00270A4B /* Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED43A541B9AF4DB00270A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ED43A551B9AF4DB00270A4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6ED43A571B9AF4DB00270A4B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6ED43A571B9AF4DB00270A4B /* ListPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresentationViewController.swift; sourceTree = "<group>"; };
 		6ED43A5A1B9AF4DB00270A4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6ED43A5C1B9AF4DB00270A4B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6ED43A5F1B9AF4DB00270A4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6ED43A651B9AF4DB00270A4B /* RemoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED43A6A1B9AF4DB00270A4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ED43A6B1B9AF4DB00270A4B /* RemoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTests.swift; sourceTree = "<group>"; };
+		6ED43A751B9B3D9D00270A4B /* PresentationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +80,12 @@
 			isa = PBXGroup;
 			children = (
 				6ED43A551B9AF4DB00270A4B /* AppDelegate.swift */,
-				6ED43A571B9AF4DB00270A4B /* ViewController.swift */,
+				6ED43A571B9AF4DB00270A4B /* ListPresentationViewController.swift */,
 				6ED43A591B9AF4DB00270A4B /* Main.storyboard */,
 				6ED43A5C1B9AF4DB00270A4B /* Images.xcassets */,
 				6ED43A5E1B9AF4DB00270A4B /* LaunchScreen.xib */,
 				6ED43A531B9AF4DB00270A4B /* Supporting Files */,
+				6ED43A751B9B3D9D00270A4B /* PresentationCell.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -213,7 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6ED43A581B9AF4DB00270A4B /* ViewController.swift in Sources */,
+				6ED43A761B9B3D9D00270A4B /* PresentationCell.swift in Sources */,
+				6ED43A581B9AF4DB00270A4B /* ListPresentationViewController.swift in Sources */,
 				6ED43A561B9AF4DB00270A4B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
