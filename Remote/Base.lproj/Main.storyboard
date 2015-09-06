@@ -63,13 +63,7 @@
                             <constraint firstItem="hEu-l9-axZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="m1e-SN-hdl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Presentations" id="8Rp-tA-j3z">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="VBD-cg-btt">
-                            <connections>
-                                <action selector="refreshPresentations:" destination="BYZ-38-t0r" id="Vir-a7-Re1"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Presentations" id="8Rp-tA-j3z"/>
                     <connections>
                         <outlet property="tableView" destination="hEu-l9-axZ" id="Fmu-Nd-6J6"/>
                         <segue destination="Eg0-6m-uCj" kind="push" identifier="presentationPlayer" id="yTD-uv-yCM"/>

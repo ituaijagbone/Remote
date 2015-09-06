@@ -33,16 +33,23 @@ class ListPresentationViewController: UIViewController, UITableViewDataSource, U
         presentationManager.getPresentationList{
             (results) -> Void in
             dispatch_async(dispatch_get_main_queue()) {
+                println(results.count)
                 self.presentationList = results
                 self.tableView.reloadData()
             }
         }
     }
     
+    
+    
     @IBAction func refreshPresentations(sender: AnyObject) {
-        presentationManager.getPresentationList{
+        self.presentationList = nil
+        self.tableView.reloadData()
+        presentationManager.getNewPresentationList{
             (results) -> Void in
             dispatch_async(dispatch_get_main_queue()) {
+//                self.presentationList = nil
+//                self.tableView.reloadData()
                 self.presentationList = results
                 self.tableView.reloadData()
             }

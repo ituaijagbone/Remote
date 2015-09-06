@@ -132,6 +132,10 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
         self.socket.emit("changeIndex", "\(slideIndex)")
     }
     
+    func returnToWelcome() {
+        self.socket.emit("changeBack", "welcome.jpg")
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "slideCollection" {
             let dvc = segue.destinationViewController as! UINavigationController
@@ -147,6 +151,12 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
         self.currentSlide = self.slidesList[self.slideIndex]
         self.load()
         self.sendIndexToServer()
+    }
+    
+    override func willMoveToParentViewController(parent: UIViewController?) {
+        if parent == nil {
+          self.returnToWelcome()  
+        }
     }
 }
 
