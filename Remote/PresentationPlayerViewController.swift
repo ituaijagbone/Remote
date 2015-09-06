@@ -30,10 +30,20 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
         self.addHandlers()
         self.socket.connect()
         
-        slidesManager.getDummySlidesList(self.slideId){
+//        slidesManager.getDummySlidesList(self.slideId){
+//            results in
+//            self.slidesList = results
+//            dispatch_async(dispatch_get_main_queue()) {
+//                self.currentSlide = self.slidesList[self.slideIndex]
+//                self.load()
+//                self.sendIndexToServer()
+//            }
+//        }
+        slidesManager.getSlidesList(self.slideId){
             results in
             self.slidesList = results
             dispatch_async(dispatch_get_main_queue()) {
+                println(self.slideIndex)
                 self.currentSlide = self.slidesList[self.slideIndex]
                 self.load()
                 self.sendIndexToServer()

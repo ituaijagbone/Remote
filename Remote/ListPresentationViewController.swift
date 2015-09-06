@@ -21,7 +21,14 @@ class ListPresentationViewController: UIViewController, UITableViewDataSource, U
         self.tableView.rowHeight = 230
 //        self.tableView.estimatedRowHeight = 215
         
-        presentationManager.getDummyPresentationList{
+//        presentationManager.getDummyPresentationList{
+//            (results) -> Void in
+//            dispatch_async(dispatch_get_main_queue()) {
+//                self.presentationList = results
+//                self.tableView.reloadData()
+//            }
+//        }
+        presentationManager.getPresentationList{
             (results) -> Void in
             dispatch_async(dispatch_get_main_queue()) {
                 self.presentationList = results
@@ -52,11 +59,13 @@ class ListPresentationViewController: UIViewController, UITableViewDataSource, U
 
         // TODO: Add cell model here
         let mPresentation = self.presentationList[indexPath.row]
-        cell.thumbnail.image = UIImage(named: mPresentation.thumbnail)
-//        let imageData = NSData(contentsOfURL: NSURL(fileURLWithPath: mPresentation.thumbnail)!)
-//        if let tmpData = imageData {
-//            cell.thumbnail.image = UIImage(data: tmpData)
-//        }
+//        cell.thumbnail.image = UIImage(named: mPresentation.thumbnail)
+        let imageData = NSData(contentsOfURL: NSURL(fileURLWithPath: mPresentation.thumbnail)!)
+        if let tmpData = imageData {
+            cell.thumbnail.image = UIImage(data: tmpData)
+        } else {
+            println("not working")
+        }
 
         cell.title.text = mPresentation.title
         

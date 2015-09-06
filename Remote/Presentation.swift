@@ -16,6 +16,6 @@ class Presentation {
     init(data: NSDictionary) {
         title = data["title"] as! String
         thumbnail = data["thumbnail"] as! String
-        slideId = data["id"] as! Int
+        slideId = (data["id"] as! String).toInt()!
     }
 }

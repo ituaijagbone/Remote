@@ -20,19 +20,20 @@ class SlidesManager {
 //    }
     
     func getSlidesList(slideId: Int, onComplete: (results: [Slides]) -> Void) {
-        Alamofire.request(.GET, "").responseJSON{
+        Alamofire.request(.GET, "http://localhost:3000/slides?pid=\(slideId)").responseJSON{
             (request, response, data, error) -> Void in
             println(error)
             if let tmpData: AnyObject = data {
                 for entry in tmpData.valueForKey("results") as! [NSDictionary] {
                     let slides = Slides(data: entry)
                     let posterUrl = entry["posterUrl"] as! String
-                    let imagedata = NSData(contentsOfURL: NSURL(string: posterUrl)!)
-                    if let tmpdata = imagedata {
-                        slides.poster = UIImage(data: tmpdata)!
-                    } else {
-                        slides.poster = UIImage(contentsOfFile: "defaultposter.png")!
-                    }
+//                    let imagedata = NSData(contentsOfURL: NSURL(string: posterUrl)!)
+//                    if let tmpdata = imagedata {
+//                        slides.poster = UIImage(data: tmpdata)!
+//                    } else {
+////                        slides.poster = UIImage()
+//                        println("not working")
+//                    }
 
                     self.slidesList.append(slides)
                 }

@@ -13,8 +13,8 @@ class PresentationManager {
     var presentationList: [Presentation] = []
     let session = NSURLSession.sharedSession()
     
-    func getPresentionList(onComplete: (results: [Presentation]) -> Void) {
-        Alamofire.request(.GET, "").responseJSON{
+    func getPresentationList(onComplete: (results: [Presentation]) -> Void) {
+        Alamofire.request(.GET, "http://localhost:3000/presentations").responseJSON{
             (request, response, data, error) -> Void in
             println(error)
             if let tmpData: AnyObject = data {
