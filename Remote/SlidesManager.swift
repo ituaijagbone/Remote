@@ -19,21 +19,22 @@ class SlidesManager {
 //        posterImageView.image = UIImage(data: tmpdata)
 //    }
     
-    func getSlidesList(slideId: Int, onComplete: (results: [Slides]) -> Void) {
-        Alamofire.request(.GET, "http://localhost:3000/slides?pid=\(slideId)").responseJSON{
+    func getSlidesList(slideId: String, onComplete: (results: [Slides]) -> Void) {
+        Alamofire.request(.GET, pennappurl + "slides?pid=\(slideId)").responseJSON{
             (request, response, data, error) -> Void in
             println(error)
             if let tmpData: AnyObject = data {
                 for entry in tmpData.valueForKey("results") as! [NSDictionary] {
                     let slides = Slides(data: entry)
                     let posterUrl = entry["posterUrl"] as! String
-//                    let imagedata = NSData(contentsOfURL: NSURL(string: posterUrl)!)
-//                    if let tmpdata = imagedata {
-//                        slides.poster = UIImage(data: tmpdata)!
-//                    } else {
-////                        slides.poster = UIImage()
-//                        println("not working")
-//                    }
+                    
+                    let imagedata = NSData(contentsOfURL: NSURL(string: pennappurl + posterUrl)!)
+                    if let tmpdata = imagedata {
+                        slides.poster = UIImage(data: tmpdata)!
+                    } else {
+//                        slides.poster = UIImage()
+                        println("not working")
+                    }
 
                     self.slidesList.append(slides)
                 }
@@ -43,7 +44,7 @@ class SlidesManager {
         }
     }
     
-    func getDummySlidesList(slideId: Int, onComplete: (results: [Slides]) -> Void) {
+    func getDummySlidesList(slideId: String, onComplete: (results: [Slides]) -> Void) {
         for index in 0..<5 {
             var data = [
                 "title": "presentation\(index)",

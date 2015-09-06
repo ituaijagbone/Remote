@@ -14,7 +14,7 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
     var slideIndex = 0
     var currentSlide: Slides!
     let slidesManager = SlidesManager()
-    var slideId: Int!
+    var slideId: String!
     
     let socket = SocketIOClient(socketURL: "localhost:3000")
     
@@ -46,7 +46,7 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
                 println(self.slideIndex)
                 self.currentSlide = self.slidesList[self.slideIndex]
                 self.load()
-                self.sendIndexToServer()
+                self.changePresentationOnServer(self.slideId)
             }
         }
     }
@@ -98,7 +98,7 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
         return self.slidesList[slideIndex]
     }
     
-    func changePresentationOnServer(presentationId: Int) {
+    func changePresentationOnServer(presentationId: String) {
         self.socket.emit("changePresentation", "\(presentationId)")
     }
     

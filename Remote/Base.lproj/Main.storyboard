@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--List Presentation View Controller-->
+        <!--Presentations-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ListPresentationViewController" customModule="Remote" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="presentationCell" rowHeight="230" id="aMH-re-YVy" customClass="PresentationCell" customModule="Remote" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="presentationCell" rowHeight="230" id="aMH-re-YVy" customClass="PresentationCell" customModule="Remote" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aMH-re-YVy" id="uVa-ED-aDQ">
@@ -32,8 +32,8 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5c-BT-DY9">
                                                     <rect key="frame" x="28" y="201" width="264" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -63,7 +63,13 @@
                             <constraint firstItem="hEu-l9-axZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="m1e-SN-hdl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8Rp-tA-j3z"/>
+                    <navigationItem key="navigationItem" title="Presentations" id="8Rp-tA-j3z">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="VBD-cg-btt">
+                            <connections>
+                                <action selector="refreshPresentations:" destination="BYZ-38-t0r" id="Vir-a7-Re1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hEu-l9-axZ" id="Fmu-Nd-6J6"/>
                         <segue destination="Eg0-6m-uCj" kind="push" identifier="presentationPlayer" id="yTD-uv-yCM"/>

@@ -8,6 +8,8 @@
 
 import UIKit
 
+let pennappurl = "http://localhost:3000/"
+
 class ListPresentationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
@@ -28,6 +30,16 @@ class ListPresentationViewController: UIViewController, UITableViewDataSource, U
 //                self.tableView.reloadData()
 //            }
 //        }
+        presentationManager.getPresentationList{
+            (results) -> Void in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.presentationList = results
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    @IBAction func refreshPresentations(sender: AnyObject) {
         presentationManager.getPresentationList{
             (results) -> Void in
             dispatch_async(dispatch_get_main_queue()) {
@@ -60,7 +72,8 @@ class ListPresentationViewController: UIViewController, UITableViewDataSource, U
         // TODO: Add cell model here
         let mPresentation = self.presentationList[indexPath.row]
 //        cell.thumbnail.image = UIImage(named: mPresentation.thumbnail)
-        let imageData = NSData(contentsOfURL: NSURL(fileURLWithPath: mPresentation.thumbnail)!)
+        println(pennappurl + mPresentation.thumbnail)
+        let imageData = NSData(contentsOfURL: NSURL(string: pennappurl + mPresentation.thumbnail)!)
         if let tmpData = imageData {
             cell.thumbnail.image = UIImage(data: tmpData)
         } else {

@@ -56,7 +56,7 @@ class SlidesCollectionViewController: UICollectionViewController, UICollectionVi
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SlidesCollectionViewCell
         cell.title.text = self.slidesList[indexPath.row].title
         let imgName = "pin\(indexPath.row).jpg"
-        cell.pinImage.image = UIImage(named: imgName)
+        cell.pinImage.image = self.slidesList[indexPath.row].poster
         
         return cell
     }
