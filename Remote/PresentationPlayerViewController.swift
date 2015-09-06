@@ -15,6 +15,10 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
     var currentSlide: Slides!
     let slidesManager = SlidesManager()
     var slideId: String!
+    var navTitle = "Presentation Title"
+    
+    @IBOutlet var navItem: UINavigationItem!
+    
     
     let socket = SocketIOClient(socketURL: "localhost:3000")
     
@@ -26,7 +30,7 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navItem.title = navTitle
         self.addHandlers()
         self.socket.connect()
         
@@ -69,31 +73,53 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
 
     
     @IBAction func next(sender: AnyObject) {
-        self.currentSlide = self.getNext()
-        load()
-        self.sendIndexToServer()
+        if let tempCurrentSlide = self.getNext() {
+            self.currentSlide = tempCurrentSlide
+            load()
+            self.sendIndexToServer()
+        }
     }
     
     @IBAction func prev(sender: AnyObject) {
-        self.currentSlide = self.getPrev()
-        load()
-        self.sendIndexToServer()
+        if let tempCurrentSlide = self.getPrev() {
+            self.currentSlide = tempCurrentSlide
+            load()
+            self.sendIndexToServer()
+        }
     }
     
-    func getNext() -> Slides {
-        slideIndex++;
-        if(slideIndex > self.slidesList.count - 1){
-            slideIndex = 0
+//    func getNext() -> Slides {
+//        slideIndex++;
+//        if(slideIndex > self.slidesList.count - 1){
+//            slideIndex = 0
+//        }
+//        print("Get Next")
+//        return self.slidesList[slideIndex]
+//    }
+    
+    func getNext() -> Slides? {
+        if(slideIndex + 1 > self.slidesList.count - 1){
+            return nil
         }
+        slideIndex++;
         print("Get Next")
         return self.slidesList[slideIndex]
     }
     
-    func getPrev() -> Slides {
-        slideIndex--;
-        if(slideIndex < 0){
-            slideIndex = self.slidesList.count - 1
+//    func getPrev() -> Slides {
+//        slideIndex--;
+//        if(slideIndex < 0){
+//            slideIndex = self.slidesList.count - 1
+//        }
+//        print("Get Prev")
+//        return self.slidesList[slideIndex]
+//    }
+    
+    func getPrev() -> Slides? {
+        if(slideIndex - 1 < 0){
+            return nil
         }
+        slideIndex--;
         print("Get Prev")
         return self.slidesList[slideIndex]
     }

@@ -97,6 +97,8 @@ class ListPresentationViewController: UIViewController, UITableViewDataSource, U
             let presentationVC = segue.destinationViewController as! PresentationPlayerViewController
             presentationVC.slideId = presentation.slideId
             
+            presentationVC.navTitle = presentation.title
+            
         }
     }
 }
