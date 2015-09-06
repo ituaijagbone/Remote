@@ -8,7 +8,7 @@
 
 import UIKit
 
-let pennappurl = "http://localhost:3000/"
+let pennappurl = "http://104.42.124.242:3000/"
 
 class ListPresentationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 

@@ -20,7 +20,7 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
     @IBOutlet var navItem: UINavigationItem!
     
     
-    let socket = SocketIOClient(socketURL: "localhost:3000")
+    let socket = SocketIOClient(socketURL: "104.42.124.242:3000")
     
     @IBOutlet weak var bkImageView: UIImageView!
     @IBOutlet weak var prevButton: UIButton!
