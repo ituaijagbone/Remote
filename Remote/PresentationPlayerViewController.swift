@@ -16,6 +16,8 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
     let slidesManager = SlidesManager()
     var slideId: Int!
     
+    let socket = SocketIOClient(socketURL: "localhost:3000")
+    
     @IBOutlet weak var bkImageView: UIImageView!
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
@@ -24,12 +26,17 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.addHandlers()
+        self.socket.connect()
+        
         slidesManager.getDummySlidesList(self.slideId){
             results in
             self.slidesList = results
             dispatch_async(dispatch_get_main_queue()) {
                 self.currentSlide = self.slidesList[self.slideIndex]
                 self.load()
+                self.sendIndexToServer()
             }
         }
     }
@@ -41,6 +48,10 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
         progressLabel.text = "\(slideIndex+1)/\(slidesList.count)"
     }
     
+    func addHandlers() {
+        self.socket.onAny {println("Got event: \($0.event), with items: \($0.items)")}
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,12 +61,13 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
     @IBAction func next(sender: AnyObject) {
         self.currentSlide = self.getNext()
         load()
+        self.sendIndexToServer()
     }
     
     @IBAction func prev(sender: AnyObject) {
         self.currentSlide = self.getPrev()
         load()
-        
+        self.sendIndexToServer()
     }
     
     func getNext() -> Slides {
@@ -76,6 +88,14 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
         return self.slidesList[slideIndex]
     }
     
+    func changePresentationOnServer(presentationId: Int) {
+        self.socket.emit("changePresentation", "\(presentationId)")
+    }
+    
+    func sendIndexToServer() {
+        self.socket.emit("changeIndex", "\(slideIndex)")
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "slideCollection" {
             let dvc = segue.destinationViewController as! UINavigationController
@@ -87,10 +107,10 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
     }
     
     func indexChanged(index: Int) {
-        println(index)
         self.slideIndex = index
         self.currentSlide = self.slidesList[self.slideIndex]
         self.load()
+        self.sendIndexToServer()
     }
 }
 
