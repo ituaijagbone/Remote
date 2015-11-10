@@ -4,3 +4,4 @@ This app makes an attempt to show the possibility of controlling your presentati
 It requires:
 - Socket.io (include)
 - A server and a website running to connect with Socket.io on the phone (https://github.com/ituaijagbone/pennappsserver)
+![alt tag](https://github.com/ituaijagbone/Remote/blob/master/assets/remote.png?raw=true)
