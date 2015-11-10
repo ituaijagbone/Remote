@@ -4,7 +4,8 @@
 //
 //  Created by Itua Ijagbone on 9/5/15.
 //  Copyright (c) 2015 Itua Ijagbone. All rights reserved.
-//
+
+// Slide model
 
 import UIKit
 

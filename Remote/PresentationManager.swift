@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Itua Ijagbone. All rights reserved.
 //
 
+// Handles Listing of Presentation on ListPresentationViewController
+
 import Foundation
 import Alamofire
 
@@ -13,6 +15,10 @@ class PresentationManager {
     var presentationList: [Presentation] = []
     let session = NSURLSession.sharedSession()
     
+    /**
+        Get PresentationList from server using Alamofire. 
+        - onComplete: Update presentation list in ListPresentationController for display
+    */
     func getPresentationList(onComplete: (results: [Presentation]) -> Void) {
         Alamofire.request(.GET, pennappurl + "presentations").responseJSON{
             (request, response, data, error) -> Void in
@@ -28,6 +34,10 @@ class PresentationManager {
         }
     }
     
+    /**
+        Get PresentationList from server using Alamofire when refresh button is clicked. 
+        - onComplete: Update presentation list in ListPresentationController for display
+    */
     func getNewPresentationList(onComplete: (results: [Presentation]) -> Void) {
         Alamofire.request(.GET, pennappurl + "presentations").responseJSON{
             (request, response, data, error) -> Void in
@@ -43,7 +53,10 @@ class PresentationManager {
         }
     }
 
-    
+    /**
+        Dummy function to test presentation of list. 
+        - onComplete: Update presentation list in ListPresentationController for display
+    */
     func getDummyPresentationList(onComplete: (results: [Presentation]) -> Void) {
         for index in 0..<5 {
             var data = [
