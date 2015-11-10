@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Itua Ijagbone. All rights reserved.
 //
 
+// Presentation Player - moves between slides on click with slide controls
+
 import UIKit
 
 class PresentationPlayerViewController: UIViewController, SlidesCollectionViewControllerDelegate {
@@ -43,6 +45,8 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
 //                self.sendIndexToServer()
 //            }
 //        }
+
+        // Get slides for this presentation from server
         slidesManager.getSlidesList(self.slideId){
             results in
             self.slidesList = results
@@ -55,6 +59,10 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
         }
     }
     
+    /**
+        load a slide on the screen. 
+        Update slide progress on screen
+    */
     func load(){
         let imagedata = currentSlide.poster
         bkImageView.image = imagedata
@@ -62,6 +70,7 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
         progressLabel.text = "\(slideIndex+1)/\(slidesList.count)"
     }
     
+    // Socket.io function
     func addHandlers() {
         self.socket.onAny {println("Got event: \($0.event), with items: \($0.items)")}
     }
@@ -71,7 +80,10 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
         // Dispose of any resources that can be recreated.
     }
 
-    
+    /**
+        Change slide to next slide when next button is clicked
+        Send update to server. Sync with slide on browser
+    */
     @IBAction func next(sender: AnyObject) {
         if let tempCurrentSlide = self.getNext() {
             self.currentSlide = tempCurrentSlide
@@ -80,6 +92,10 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
         }
     }
     
+    /**
+        Change slide to prev slide when prev button is clicked
+        Send update to server. Sync with slide on browser
+    */
     @IBAction func prev(sender: AnyObject) {
         if let tempCurrentSlide = self.getPrev() {
             self.currentSlide = tempCurrentSlide
@@ -97,6 +113,10 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
 //        return self.slidesList[slideIndex]
 //    }
     
+    /**
+        Get the next Slide object from list of slides
+        - return: next slide if it exist else nil
+    */
     func getNext() -> Slides? {
         if(slideIndex + 1 > self.slidesList.count - 1){
             return nil
@@ -115,6 +135,10 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
 //        return self.slidesList[slideIndex]
 //    }
     
+    /**
+        Get the prev Slide object from list of slides
+        - return: prev slide if it exist else nil
+    */
     func getPrev() -> Slides? {
         if(slideIndex - 1 < 0){
             return nil
@@ -124,18 +148,24 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
         return self.slidesList[slideIndex]
     }
     
+    // socket.io to change presentation on server
     func changePresentationOnServer(presentationId: String) {
         self.socket.emit("changePresentation", "\(presentationId)")
     }
     
+    // socket.io to change slide index on server
     func sendIndexToServer() {
         self.socket.emit("changeIndex", "\(slideIndex)")
     }
     
+    // socket.io to return to home page on server
     func returnToWelcome() {
         self.socket.emit("changeBack", "welcome.jpg")
     }
     
+    /**
+        Transition to listing of slide in thumbnails
+    */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "slideCollection" {
             let dvc = segue.destinationViewController as! UINavigationController
@@ -146,6 +176,11 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
         }
     }
     
+    /**
+        Update current slide
+        load screen to display new slide
+        send update to server for sync with browser
+    */
     func indexChanged(index: Int) {
         self.slideIndex = index
         self.currentSlide = self.slidesList[self.slideIndex]
@@ -153,6 +188,7 @@ class PresentationPlayerViewController: UIViewController, SlidesCollectionViewCo
         self.sendIndexToServer()
     }
     
+    // Tell server to return to home page when user hits back button on phone
     override func willMoveToParentViewController(parent: UIViewController?) {
         if parent == nil {
           self.returnToWelcome()  
