@@ -6,10 +6,13 @@
 //  Copyright (c) 2015 Itua Ijagbone. All rights reserved.
 //
 
+// display thumbnail for slides like the Powerpoint thumbnail side bar
+
 import UIKit
 
 let reuseIdentifier = "collection"
 
+// Notify the presentation player that slide index has changed
 protocol SlidesCollectionViewControllerDelegate {
     func indexChanged(index: Int)
 }
@@ -40,6 +43,7 @@ class SlidesCollectionViewController: UICollectionViewController, UICollectionVi
     
     // MARK: UICollectionViewDataSource
     
+    
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -54,6 +58,8 @@ class SlidesCollectionViewController: UICollectionViewController, UICollectionVi
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SlidesCollectionViewCell
+        
+        // Slide model
         cell.title.text = self.slidesList[indexPath.row].title
         let imgName = "pin\(indexPath.row).jpg"
         cell.pinImage.image = self.slidesList[indexPath.row].poster
@@ -62,10 +68,14 @@ class SlidesCollectionViewController: UICollectionViewController, UICollectionVi
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        // Tell Presentation to change slide
         delegate?.indexChanged(indexPath.row)
+        
+        // dismiss this view. Return to presentation player view
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // Dismiss this view. Return to presentation player view
     @IBAction func dismissModel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
